@@ -2,17 +2,16 @@
 ## Variables ##
 ###############
 
-NAME		=	
+NAME		=	megaphone
 
-VPATH		=	
 OBJDIR		=	obj
 INCLDIR		=	
 
 SRC			=	megaphone.cpp
-OBJ			=	$(SRC:%.c=$(OBJDIR)/%.o)
+OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
 INCFLAGS	=	
 LFLAGS		=	
 RM			=	/bin/rm -rf
@@ -27,7 +26,7 @@ UNAME		:=	$(shell uname -s)
 
 all:			$(NAME)
 
-$(OBJDIR)/%.o:	%.c | $(OBJDIR)
+$(OBJDIR)/%.o:	%.cpp | $(OBJDIR)
 				$(CC) $(CFLAGS) $(INCFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJ)
