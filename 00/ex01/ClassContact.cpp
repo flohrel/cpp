@@ -1,12 +1,31 @@
 #include "ClassContact.hpp"
 
-Contact::Contact(std::string first, std::string last, std::string nick, std::string phone, std::string secret)
-: _firstName(first), _lastName(last), _nickName(nick), _phoneNumber(phone), _darkestSecret(secret)
+Contact::Contact(void)
 {
-    return ;
+	return ;
 }
 
 Contact::~Contact()
 {
     return ;
+}
+
+void    Contact::setContact(std::string first, std::string last, std::string nick, std::string phone, std::string secret, int index)
+{
+    this->_firstName = first;
+    this->_lastName = last;
+    this->_nickName = nick;
+    this->_phoneNumber = phone;
+    this->_darkestSecret = secret;
+    this->_index = index;
+    return ;
+}
+
+void    Contact::display() const
+{
+    std::cout
+    << std::setw(10) << truncateEntry(this->_firstName, 10) + "|" 
+    << std::setw(10) << truncateEntry(this->_lastName, 10) + "|"
+    << std::setw(10) << truncateEntry(this->_nickName, 10)
+    << std::endl;
 }

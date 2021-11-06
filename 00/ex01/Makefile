@@ -5,7 +5,7 @@
 NAME		=	phonebook
 
 OBJDIR		=	obj
-INCLDIR		=	
+INCLDIR		=
 
 SRC			=	ClassPhonebook.cpp \
 				ClassContact.cpp \
@@ -13,9 +13,9 @@ SRC			=	ClassPhonebook.cpp \
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
-CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g3
-INCFLAGS	=	
-LFLAGS		=	
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+INCFLAGS	=
+LFLAGS		=
 RM			=	/bin/rm -rf
 UNAME		:=	$(shell uname -s)
 
