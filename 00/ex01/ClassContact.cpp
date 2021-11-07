@@ -21,11 +21,25 @@ void    Contact::setContact(std::string first, std::string last, std::string nic
     return ;
 }
 
-void    Contact::display() const
+void    Contact::truncDisplay(void) const
 {
     std::cout
+    << this->_index
+    << "|"
     << std::setw(10) << truncateEntry(this->_firstName, 10) + "|" 
     << std::setw(10) << truncateEntry(this->_lastName, 10) + "|"
     << std::setw(10) << truncateEntry(this->_nickName, 10)
     << std::endl;
+    return ;
+}
+
+void    Contact::fullDisplay(void) const
+{
+    std::cout
+    << this->_firstName << std::endl
+    << this->_lastName << std::endl
+    << this->_nickName << std::endl
+    << this->_phoneNumber << std::endl
+    << this->_darkestSecret << std::endl;
+    return ;
 }

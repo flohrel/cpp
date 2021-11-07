@@ -1,5 +1,5 @@
-#ifndef CLASSPHONEBOOK_H
-# define CLASSPHONEBOOK_H
+#ifndef __CLASSPHONEBOOK__H__
+#define __CLASSPHONEBOOK__H__
 
 #include "ClassContact.hpp"
 
@@ -16,6 +16,7 @@ class   Phonebook
 		void	addContact(void);
 		bool	isFull(void) const;
 		void	listContact(void) const;
+		void	displayContact(int index) const;
 };
 
-#endif // !CLASSPHONEBOOK_H
+#endif  //!__CLASSPHONEBOOK__H__

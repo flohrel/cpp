@@ -3,7 +3,6 @@
 
 # include <iomanip>
 # include <iostream>
-# include <string>
 # include "main.hpp"
 
 class   Contact
@@ -21,7 +20,8 @@ class   Contact
         ~Contact(void);
 
         void    setContact(std::string first, std::string last, std::string nick, std::string phone, std::string secret, int index);
-        void    display(void) const;
+        void    truncDisplay(void) const;
+        void    fullDisplay(void) const;
 };
 
 #endif  //!__CLASSCONTACT__H__

@@ -29,9 +29,7 @@ void	Phonebook::addContact(void)
 		std::cout << "Phonebook is FULL. Cannot ADD another contact." << std::endl;
 		return ;
 	}
-	std::cout << "-------------------------" << std::endl;
-	std::cout << "|    New contact form   |" << std::endl;
-	std::cout << "-------------------------" << std::endl;
+	std::cout << "New contact form :" << std::endl;
 	std::cout << "--> First name: ";
 	std::cin >> first;
 	std::cout << "--> Last name: ";
@@ -49,10 +47,25 @@ void	Phonebook::addContact(void)
 
 void	Phonebook::listContact(void) const
 {
-	std::cout << std::setw(10);
 	for (int i = 0; i < this->_nbContact; i++)
 	{
-		this->_contact[i].display();
+		this->_contact[i].truncDisplay();
 	}
-	std::cout << std::setw(0);
+}
+
+void	Phonebook::displayContact(int index) const
+{
+	if (this->_nbContact == 0)
+	{
+		std::cout << "No contact saved yet." << std::endl;
+	}
+	else if (index < 0 || index > (this->_nbContact - 1))
+	{
+		std::cout << "Index not valid." << std::endl;
+	}
+	else
+	{
+		this->_contact[index].fullDisplay();
+	}
+	return ;
 }
