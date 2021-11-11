@@ -10,7 +10,7 @@ LIBDIR		=	libft
 INCLDIR		=	incld
 
 SRC			=	Account.cpp \
-				test.cpp
+				tests.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
@@ -29,7 +29,7 @@ UNAME		:=	$(shell uname -s)
 
 all:			$(NAME)
 
-$(OBJDIR)/%.o:	%.c | $(OBJDIR)
+$(OBJDIR)/%.o:	%.cpp | $(OBJDIR)
 				$(CC) $(CFLAGS) $(INCFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJ)
