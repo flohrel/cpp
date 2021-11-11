@@ -29,17 +29,25 @@ void	Phonebook::addContact(void)
 		std::cout << "Phonebook is FULL. Cannot ADD another contact." << std::endl;
 		return ;
 	}
-	std::cout << "New contact form :" << std::endl;
-	std::cout << "--> First name: ";
-	std::cin >> first;
-	std::cout << "--> Last name: ";
-	std::cin >> last;
-	std::cout << "--> Nickname: ";
-	std::cin >> nick;
-	std::cout << "--> Phone number: ";
-	std::cin >> phone;
-	std::cout << "--> Darkest secret: ";
-	std::cin >> secret;
+	std::cout << std::endl;
+	std::cout << "--------------------" << std::endl;
+	std::cout << "|    New contact   |" << std::endl;
+	std::cout << "--------------------" << std::endl;
+	std::cout << "First name: ";
+	if (!std::getline(std::cin, first))
+		return ;
+	std::cout << "Last name: ";
+	if (!std::getline(std::cin, last))
+		return ;
+	std::cout << "Nickname: ";
+	if (!std::getline(std::cin, nick))
+		return ;
+	std::cout << "Phone number: ";
+	if (!std::getline(std::cin, phone))
+		return ;
+	std::cout << "Darkest secret: ";
+	if (!std::getline(std::cin, secret))
+		return ;
 	this->_contact[this->_nbContact].setContact(first, last, nick, phone, secret, this->_nbContact);
 	this->_nbContact++;
 	return ;
@@ -47,25 +55,38 @@ void	Phonebook::addContact(void)
 
 void	Phonebook::listContact(void) const
 {
+	std::cout
+	<< std::endl
+	<< std::setw(10) << (std::string)"Firstname" << "|"
+	<< std::setw(10) << (std::string)"Last name" << "|"
+	<< std::setw(10) << (std::string)"Nickname" << "|"
+	<< std::setw(10) << (std::string)"Index"
+	<< std::endl
+	<< "----------------------------------------"
+	<< std::endl;
 	for (int i = 0; i < this->_nbContact; i++)
 	{
 		this->_contact[i].truncDisplay();
 	}
 }
 
-void	Phonebook::displayContact(int index) const
+void	Phonebook::displayContact(std::string index) const
 {
+	int	idx;
+
+	idx = atoi(index.c_str());
+	std::cout << std::endl;
 	if (this->_nbContact == 0)
 	{
 		std::cout << "No contact saved yet." << std::endl;
 	}
-	else if (index < 0 || index > (this->_nbContact - 1))
+	else if (idx < 0 || idx > (this->_nbContact - 1))
 	{
 		std::cout << "Index not valid." << std::endl;
 	}
 	else
 	{
-		this->_contact[index].fullDisplay();
+		this->_contact[idx].fullDisplay();
 	}
 	return ;
 }

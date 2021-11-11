@@ -2,6 +2,7 @@
 #define __CLASSPHONEBOOK__H__
 
 #include "ClassContact.hpp"
+#include <stdlib.h>
 
 class   Phonebook
 {
@@ -16,7 +17,7 @@ class   Phonebook
 		void	addContact(void);
 		bool	isFull(void) const;
 		void	listContact(void) const;
-		void	displayContact(int index) const;
+		void	displayContact(std::string index) const;
 };
 
 #endif  //!__CLASSPHONEBOOK__H__
