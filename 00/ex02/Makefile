@@ -2,19 +2,21 @@
 ## Variables ##
 ###############
 
-NAME		=	
+NAME		=	tests
 
-VPATH		=	
+VPATH		=	src
 OBJDIR		=	obj
-INCLDIR		=	
+LIBDIR		=	libft
+INCLDIR		=	incld
 
-SRC			=	
-OBJ			=	$(SRC:%.c=$(OBJDIR)/%.o)
+SRC			=	Account.cpp \
+				test.cpp
+OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
-CFLAGS		=	-Wall -Wextra -Werror
-INCFLAGS	=	
-LFLAGS		=	
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+INCFLAGS	=	-I./$(INCLDIR) -I./$(LIBDIR)/incld
+LFLAGS		=
 RM			=	/bin/rm -rf
 UNAME		:=	$(shell uname -s)
 

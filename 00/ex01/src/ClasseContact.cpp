@@ -1,10 +1,18 @@
 #include "ClassContact.hpp"
 
+/**
+ * @brief Construct a new Contact:: Contact object
+ * 
+ */
 Contact::Contact(void)
 {
 	return ;
 }
 
+/**
+ * @brief Destroy the Contact:: Contact object
+ * 
+ */
 Contact::~Contact()
 {
     return ;
@@ -21,6 +29,10 @@ void    Contact::setContact(std::string first, std::string last, std::string nic
     return ;
 }
 
+/**
+ * @brief Display contact list
+ * 
+ */
 void    Contact::truncDisplay(void) const
 {
     std::cout
@@ -32,6 +44,10 @@ void    Contact::truncDisplay(void) const
     return ;
 }
 
+/**
+ * @brief Display contact details
+ * 
+ */
 void    Contact::fullDisplay(void) const
 {
     std::cout

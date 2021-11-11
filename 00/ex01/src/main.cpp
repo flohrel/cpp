@@ -1,5 +1,12 @@
 #include "ClassPhonebook.hpp"
 
+/**
+ * @brief Truncate entry to display in contact list
+ * 
+ * @param str 
+ * @param width 
+ * @return std::string 
+ */
 std::string truncateEntry(std::string str, size_t width)
 {
     if (str.length() > width)

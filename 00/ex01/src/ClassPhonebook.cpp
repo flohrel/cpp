@@ -2,12 +2,20 @@
 #include <iostream>
 #include <iomanip>
 
+/**
+ * @brief Construct a new Phonebook:: Phonebook object
+ * 
+ */
 Phonebook::Phonebook(void)
 {
 	this->_nbContact = 0;
 	return ;
 }
 
+/**
+ * @brief Destroy the Phonebook:: Phonebook object
+ * 
+ */
 Phonebook::~Phonebook(void)
 {
 	return ;
@@ -53,6 +61,10 @@ void	Phonebook::addContact(void)
 	return ;
 }
 
+/**
+ * @brief Display contact list
+ * 
+ */
 void	Phonebook::listContact(void) const
 {
 	std::cout
@@ -70,6 +82,11 @@ void	Phonebook::listContact(void) const
 	}
 }
 
+/**
+ * @brief Display contact details
+ * 
+ * @param index 
+ */
 void	Phonebook::displayContact(std::string index) const
 {
 	int	idx;
