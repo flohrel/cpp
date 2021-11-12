@@ -74,7 +74,7 @@ void	Phonebook::listContact(void) const
 	<< std::setw(10) << (std::string)"Nickname" << "|"
 	<< std::setw(10) << (std::string)"Index"
 	<< std::endl
-	<< "----------------------------------------"
+	<< "--------------------------------------------"
 	<< std::endl;
 	for (int i = 0; i < this->_nbContact; i++)
 	{

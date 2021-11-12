@@ -30,6 +30,16 @@ std::cout << "8 8888         8 8888        8  ` 8888     ,88'   8         `Y8o.`
 std::cout << "8 8888         8 8888        8     `8888888P'     8            `Yo 8 888888888888 8 888888888P       `8888888P'         `8888888P'     8 8888     `Y8. " << std::endl;
 }
 
+void	helpDisplay(void)
+{
+	std::cout << std::endl;
+	std::cout << "Command\t\t|" <<	" Description" << std::endl;
+	std::cout << "------------------------------------------------------" << std::endl;
+	std::cout << "ADD\t\t|"		<<	" add a new contact to phonebook" << std::endl;
+	std::cout << "SEARCH\t\t|"	<<	" list contact and contact details" << std::endl;
+	std::cout << "EXIT\t\t|"	<<	" obviously... quit the program !" << std::endl;
+}
+
 int main(void)
 {
 	Phonebook	phonebook;
@@ -43,7 +53,7 @@ int main(void)
 		if (!(std::getline(std::cin, input)) ||
 			input.compare("EXIT") == 0)
 		{
-			std::cout << "Exitting..." << std::endl;
+			std::cout << "Leaving... see you !" << std::endl;
 			break ;
 		}
 		else if (input.compare("ADD") == 0)
@@ -54,20 +64,13 @@ int main(void)
 			std::cout << std::endl << "Type an index to display: ";
 			if (!std::getline(std::cin, index))
 			{
-				std::cout << "Exitting..." << std::endl;
+				std::cout << "Leaving... see you !" << std::endl;
 				break ;
 			}
 			phonebook.displayContact(index);
 		}
 		else if (input.compare("HELP") == 0)
-		{
-			std::cout << std::endl;
-			std::cout << "Command\t|\tDescription" << std::endl;
-			std::cout << "------------------------------------------------------" << std::endl;
-			std::cout << "ADD:\t|\tadd a new contact to phonebook" << std::endl;
-			std::cout << "SEARCH:\t|\tlist contact and contact details" << std::endl;
-			std::cout << "EXIT:\t|\tobviously... quit the program !" << std::endl;
-		}
+			helpDisplay();
 		else
 			std::cout << "Command not found. Try HELP for more information" << std::endl;
 	}
