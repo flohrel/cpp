@@ -9,8 +9,10 @@ OBJDIR		=	obj
 LIBDIR		=	libft
 INCLDIR		=	incld
 
-SRC			=	Account.cpp \
-				tests.cpp
+SRC			=	main.cpp \
+				Weapon.cpp \
+				HumanA.cpp \
+				HumanB.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
