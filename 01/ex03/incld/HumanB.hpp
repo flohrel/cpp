@@ -21,6 +21,7 @@ public:
 
 	void	attack( void ) const;
 	void	setWeapon( Weapon &weapon );
+
 };
 
 #endif  //!__HUMANB__H__

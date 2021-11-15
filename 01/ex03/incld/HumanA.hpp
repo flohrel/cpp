@@ -20,6 +20,7 @@ public:
 	~HumanA( void );
 
 	void	attack( void ) const;
+
 };
 
 #endif  //!__HUMANA__H__
