@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Nov 15 01:22:59 2021
+# Make data base, printed on Mon Nov 15 15:13:12 2021
 
 # Variables
 
@@ -79,11 +79,11 @@ GLADE_PIXMAP_PATH = :
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-TERMINATOR_UUID = urn:uuid:684505e7-e77e-49b3-bd2a-35c37ee97481
+TERMINATOR_UUID = urn:uuid:56913cc3-33d6-4b9f-97e9-c5e6c7573f15
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-b8d81123-6395-4287-9058-2ece9fa450e2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1001/vscode-ipc-d4959f6d-e9ff-41cb-acc5-3aed3d7f3c70.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -99,7 +99,7 @@ GPG_AGENT_INFO = /run/user/1001/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/kiiro:@/tmp/.ICE-unix/2085,unix/kiiro:/tmp/.ICE-unix/2085
+SESSION_MANAGER = local/kiiro:@/tmp/.ICE-unix/2299,unix/kiiro:/tmp/.ICE-unix/2299
 # environment
 XDG_RUNTIME_DIR = /run/user/1001
 # environment
@@ -139,7 +139,7 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 2067
+SSH_AGENT_PID = 2281
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = XFCE
 # environment
@@ -273,13 +273,13 @@ LC_ADDRESS = fr_FR.UTF-8
 # environment
 LANG = C
 # environment
- 
 TERM = xterm-256color
 # environment
 TERMINATOR_DBUS_NAME = net.tenshu.Terminator20x1a6021154d881c
 # environment
-VSCODE_PID = 2821
+VSCODE_PID = 3012
 # variable set hash-table stats:
+ 
 # Load=134/1024=13%, Rehash=0, Collisions=20/167=12%
 
 # Pattern-specific Variable Values
@@ -381,6 +381,6 @@ clean:
 # strcache performance: lookups = 52 / hit rate = 42%
 # hash-table stats:
 # Load=30/8192=0%, Rehash=0, Collisions=1/52=2%
-# Finished Make data base on Mon Nov 15 01:23:00 2021
+# Finished Make data base on Mon Nov 15 15:13:12 2021
 
  
