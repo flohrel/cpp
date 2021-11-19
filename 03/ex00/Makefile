@@ -9,7 +9,8 @@ OBJDIR		=	obj
 LIBDIR		=	libft
 INCLDIR		=	incld
 
-SRC			=	main.cpp
+SRC			=	ClapTrap.cpp \
+				main.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++

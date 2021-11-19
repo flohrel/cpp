@@ -13,7 +13,7 @@ void	display_usage( void )
 void	search_and_replace( std::ifstream &in_file, std::ofstream &out_file, std::string old_string, std::string new_string )
 {
 	std::string	buffer;
-	std::string new_buffer;
+	std::string	new_buffer;
 	size_t		old_pos;
 	size_t		new_pos;
 
@@ -24,7 +24,6 @@ void	search_and_replace( std::ifstream &in_file, std::ofstream &out_file, std::s
 			old_pos = 0;
 			while ((new_pos = buffer.find( old_string, old_pos )) != std::string::npos)
 			{
-				std::cout << "old: " << old_pos << "new: " << new_pos << std::endl;
 				new_buffer += (buffer.substr(old_pos, new_pos - old_pos) + new_string);
 				old_pos += new_pos + old_string.length();
 			}
@@ -37,6 +36,8 @@ void	search_and_replace( std::ifstream &in_file, std::ofstream &out_file, std::s
 	}
 	catch(const std::exception& e)
 	{
+		if (in_file.eof())
+            return;
 		std::cerr << e.what() << std::endl;
 	}
 }

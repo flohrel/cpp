@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	zombie
+NAME		=	test
 
 VPATH		=	src
 OBJDIR		=	obj
