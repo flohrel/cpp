@@ -25,10 +25,13 @@ void	search_and_replace( std::ifstream &in_file, std::ofstream &out_file, std::s
 			while ((new_pos = buffer.find( old_string, old_pos )) != std::string::npos)
 			{
 				new_buffer += (buffer.substr(old_pos, new_pos - old_pos) + new_string);
-				old_pos += new_pos + old_string.length();
+				old_pos = new_pos + old_string.length();
 			}
 			if (new_buffer.length())
+			{
+				new_buffer += &buffer[old_pos];
 				out_file << new_buffer << std::endl;
+			}
 			else
 				out_file << buffer << std::endl;
 			new_buffer.erase();
