@@ -2,14 +2,19 @@
 ## Variables ##
 ###############
 
-NAME		=	
+NAME		=	test
 
 VPATH		=	src
 OBJDIR		=	obj
 LIBDIR		=	libft
 INCLDIR		=	incld
 
-SRC			=	
+SRC			=	Animal.cpp \
+				Cat.cpp \
+				Dog.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
+				main.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
