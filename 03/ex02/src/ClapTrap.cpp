@@ -2,13 +2,13 @@
 
 ClapTrap::ClapTrap( std::string name ) : _name(name), _hp(10), _mp(10), _dmg(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 	return ;
 }
 
