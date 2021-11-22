@@ -20,6 +20,13 @@ FragTrap::FragTrap( std::string name )
 	return ;
 }
 
+FragTrap::FragTrap( FragTrap const & src )
+{
+	*this = src;
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	return ;
+}
+
 FragTrap::~FragTrap( void )
 {
 	std::cout << "FragTrap destructor called" << std::endl;

@@ -20,6 +20,8 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		void	beRepaired( unsigned int amount );
 		void	whoAmI( void );
 
+
+	protected:
 		std::string	_name;
 
 

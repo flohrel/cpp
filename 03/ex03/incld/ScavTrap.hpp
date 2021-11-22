@@ -16,6 +16,8 @@ class ScavTrap: virtual public ClapTrap
 		void	beRepaired( unsigned int amount );
 		void	guardGate( void );
 
+
+	protected:
 		std::string		_name;
 		unsigned int	_mp;
 

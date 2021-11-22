@@ -6,8 +6,8 @@ ScavTrap::ScavTrap( void )
 	this->_hp = 100;
 	this->_mp = 50;
 	this->_dmg = 20;
-	return ;
 	std::cout << "ScavTrap constructor called" << std::endl;
+	return ;
 }
 
 ScavTrap::ScavTrap( std::string name )
@@ -17,6 +17,13 @@ ScavTrap::ScavTrap( std::string name )
 	this->_mp = 50;
 	this->_dmg = 20;
 	std::cout << "ScavTrap constructor called" << std::endl;
+	return ;
+}
+
+ScavTrap::ScavTrap( ScavTrap const & src )
+{
+	*this = src;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 	return ;
 }
 

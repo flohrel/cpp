@@ -16,6 +16,8 @@ class FragTrap: virtual public ClapTrap
 		void	beRepaired( unsigned int amount );
 		void	highFivesGuys( void );
 
+
+	protected:
 		unsigned int	_hp;
 		unsigned int	_dmg;
 

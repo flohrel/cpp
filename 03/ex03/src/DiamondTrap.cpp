@@ -17,6 +17,13 @@ DiamondTrap::DiamondTrap( void )
 	return ;
 }
 
+DiamondTrap::DiamondTrap( DiamondTrap const & src )
+{
+	*this = src;
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
+	return ;
+}
+
 DiamondTrap::~DiamondTrap( void )
 {	
 	std::cout << "DiamondTrap destructor called" << std::endl;
