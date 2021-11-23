@@ -1,0 +1,53 @@
+###############
+## Variables ##
+###############
+
+NAME		=	test
+
+VPATH		=	src
+OBJDIR		=	obj
+LIBDIR		=	libft
+INCLDIR		=	incld
+
+SRC			=	Animal.cpp \
+				Cat.cpp \
+				Dog.cpp \
+				Brain.cpp \
+				main.cpp
+OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
+
+CC			=	clang++
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+INCFLAGS	=	-I./$(INCLDIR) -I./$(LIBDIR)/incld
+LFLAGS		=
+RM			=	/bin/rm -rf
+UNAME		:=	$(shell uname -s)
+
+
+###########
+## Rules ##
+###########
+
+.PHONY:			all bonus clean fclean re
+
+all:			$(NAME)
+
+$(OBJDIR)/%.o:	%.cpp | $(OBJDIR)
+				$(CC) $(CFLAGS) $(INCFLAGS) -c $< -o $@
+
+$(NAME):		$(OBJ)
+				$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS)
+
+$(OBJDIR):
+				mkdir $(OBJDIR)
+
+bonus:
+				@make all
+
+clean:
+				$(RM) $(OBJ)
+
+fclean:			clean
+				$(RM) $(NAME) $(OBJDIR)
+
+re:				fclean all
