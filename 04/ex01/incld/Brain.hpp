@@ -6,6 +6,10 @@
 
 class Brain
 {
+	private:
+		static const unsigned int	kNbIdeas = 100;
+	
+	
 	public:
 		Brain( void );
 		Brain( Brain const & src );
@@ -13,9 +17,7 @@ class Brain
 
 		Brain &	operator=( Brain const & rhs );
 
-
-	private:
-		std::string	_ideas[100];
+		std::string		ideas[Brain::kNbIdeas];
 
 
 };

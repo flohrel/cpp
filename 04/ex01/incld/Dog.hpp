@@ -13,14 +13,10 @@ class Dog: public Animal
 		Dog( Dog const & src );
 		~Dog( void );
 
-		Dog &	operator=( Dog const & rhs );
+		Dog &	operator=( Animal const & rhs );
 
-		std::string const &	getType( void ) const;
-		void				makeSound( void ) const;
-
-
-	protected:
-		std::string _type;
+		Brain *	getBrain( void ) const;
+		void	makeSound( void ) const;
 
 
 	private:

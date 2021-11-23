@@ -13,15 +13,10 @@ class Cat: public Animal
 		Cat( Cat const & src );
 		~Cat( void );
 
-		Cat &	operator=( Cat const & rhs );
+		Cat &	operator=( Animal const & rhs );
 
-		Brain const *		getBrain( void ) const;
-		std::string const &	getType( void ) const;
-		void				makeSound( void ) const;
-
-
-	protected:
-		std::string _type;
+		Brain *	getBrain( void ) const;
+		void	makeSound( void ) const;
 
 
 	private:

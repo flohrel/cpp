@@ -1,8 +1,9 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : _type("Cat")
+Cat::Cat( void )
 {
 	std::cout << "Cat constructor called" << std::endl;
+	this->_type = "Cat";
 	this->_brain = new Brain();
 	return ;
 }
@@ -10,7 +11,7 @@ Cat::Cat( void ) : _type("Cat")
 Cat::Cat( Cat const & src )
 {
 	std::cout << "Cat copy constructor called." << std::endl;
-	this->_type = src._type;
+	this->_type = src.getType();
 	*(this->_brain) = *(src.getBrain());
 	return ;
 }
@@ -22,9 +23,9 @@ Cat::~Cat( void )
 	return ;
 }
 
-Cat &	Cat::operator=( Cat const & rhs )
+Cat &	Cat::operator=( Animal const & rhs )
 {
-	this->_type = rhs._type;
+	this->_type = rhs.getType();
 	*(this->_brain) = *(rhs.getBrain());
 	return (*this);
 }
@@ -35,12 +36,7 @@ void	Cat::makeSound( void ) const
 	return ;
 }
 
-std::string const &	Cat::getType( void ) const
-{
-	return (this->_type);
-}
-
-Brain const *	Cat::getBrain( void ) const
+Brain *	Cat::getBrain( void ) const
 {
 	return (this->_brain);
 }
