@@ -57,14 +57,17 @@ void	Karen::complain( std::string level )
 			std::cout << "[" + lvls[0] + "]" << std::endl;
 			this->_debug();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 1:
 			std::cout << "[" + lvls[1] + "]" << std::endl;
 			this->_info();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 2:
 			std::cout << "[" + lvls[2] + "]" << std::endl;
 			this->_warning();
 			std::cout << std::endl;
+			__attribute__ ((fallthrough));
 		case 3:
 			std::cout << "[" + lvls[3] + "]" << std::endl;
 			this->_error();
@@ -72,6 +75,7 @@ void	Karen::complain( std::string level )
 			break ;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break ;
 	}
 }
 
