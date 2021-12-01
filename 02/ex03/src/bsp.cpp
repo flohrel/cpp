@@ -20,5 +20,5 @@ bool	bsp( const Point v1, const Point v2, const Point v3, const Point pt )
 	A2 = area(x1, y1, xpt, ypt, x3, y3);
 	A3 = area(x1, y1, x2, y2, xpt, ypt);
 
-    return (A == (A1 + A2 + A3));
+    return ((A1 != 0) && (A2 != 0) && (A3 != 0) && (A == (A1 + A2 + A3)));
 }
