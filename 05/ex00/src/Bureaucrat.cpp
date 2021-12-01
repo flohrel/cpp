@@ -12,9 +12,8 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name)
 	return;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & src )
+Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src.getName()), _grade(src.getGrade())
 {
-	*this = src;
 	if (VERBOSE)
 		std::cout << "Bureaucrat copy constructor called" << std::endl;
 	return;
@@ -23,15 +22,15 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src )
 Bureaucrat::~Bureaucrat( void )
 {
 	if (VERBOSE)
-		std::cout << "Bureaucrat constructor called" << std::endl;
+		std::cout << "Bureaucrat destructor called" << std::endl;
 	return;
 }
 
-Bureaucrat const &	Bureaucrat::operator=( Bureaucrat const & rhs )
+Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs )
 {
 	if (VERBOSE)
 		std::cout << "Bureaucrat assignation called" << std::endl;
-	return (rhs);
+	return ((Bureaucrat &)rhs);
 }
 
 std::string		Bureaucrat::getName( void ) const

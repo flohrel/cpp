@@ -24,7 +24,7 @@ UNAME		:=	$(shell uname -s)
 ## Rules ##
 ###########
 
-.PHONY:			all bonus clean fclean re
+.PHONY:			all bonus clean fclean re verbose
 
 all:			$(NAME)
 
@@ -47,3 +47,6 @@ fclean:			clean
 				$(RM) $(NAME) $(OBJDIR)
 
 re:				fclean all
+
+verbose:		CFLAGS += -DVERBOSE=1
+verbose:		$(NAME)

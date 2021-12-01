@@ -43,6 +43,12 @@
 		"tuple": "cpp",
 		"utility": "cpp",
 		"iomanip": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"bit": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"ranges": "cpp"
 	}
 }
