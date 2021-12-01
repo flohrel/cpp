@@ -11,6 +11,17 @@ Form::Form( std::string name, unsigned int sGrade, unsigned int eGrade ) : _name
 	return;
 }
 
+Form::Form( std::string name, unsigned int sGrade, unsigned int eGrade, std::string target ) : _name(name), _signed(false), _signGrade(sGrade), _execGrade(eGrade), _target(target)
+{
+	if (sGrade < 1 || eGrade < 1)
+		throw (Form::GradeTooHighException());
+	if (sGrade > 150 || eGrade > 150)
+		throw (Form::GradeTooLowException());
+	if (VERBOSE)
+		std::cout << "Form constructor called" << std::endl;
+	return;
+}
+
 Form::Form( Form const & src ) : _name(src.getName()), _signed(false), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade()) 
 {
 	if (VERBOSE)
@@ -45,6 +56,11 @@ unsigned int	Form::getExecGrade( void ) const
 	return (this->_execGrade);
 }
 
+std::string		Form::getTarget( void ) const
+{
+	return (this->_target);
+}
+
 bool	Form::isSigned( void ) const
 {
 	return (this->_signed);
@@ -57,6 +73,23 @@ Form &	Form::beSigned( Bureaucrat const & b )
 	}
 	this->_signed = true;
 	return (*this);
+}
+
+void	Form::execute( Bureaucrat const & executor ) const
+{
+	if (this->isSigned() == false)
+	{
+		throw (Form::NotSignedException());
+	}
+	if (executor.getGrade() > this->getExecGrade())
+	{
+		throw (Form::GradeTooLowException());
+	}
+}
+
+char const *	Form::NotSignedException::what() const throw()
+{
+	return ("Form not signed");
 }
 
 char const *	Form::GradeTooHighException::what() const throw()

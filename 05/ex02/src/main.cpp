@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int	main( void )
 {
@@ -79,7 +81,7 @@ int	main( void )
 	**	TEST 6: call beSigned on a form with Bureaucrat too low, then sign it with another one;
 	*/
 		{
-			std::cout << "< TEST 5 >" << std::endl;
+			std::cout << "< TEST 6 >" << std::endl;
 			Bureaucrat	b1("Bob", 42);
 			Bureaucrat	b2("John", 105);
 			Form		f("bar", 54, 98);
@@ -95,6 +97,18 @@ int	main( void )
 			}
 			b2.signForm(f);
 			std::cout << f << std::endl;
+		}
+		std::cout << std::endl;
+
+	/*
+	**	TEST 7: 
+	*/
+		{
+			std::cout << "< TEST 7 >" << std::endl;
+			Bureaucrat	b("Alain", 42);
+			ShrubberyCreationForm test("buidi");
+			b.signForm(test);
+			test.execute(b);
 		}
 		std::cout << std::endl;
 	
