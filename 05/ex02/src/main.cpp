@@ -10,6 +10,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 1 >" << std::endl;
+
 			Bureaucrat b1 = Bureaucrat("Bob", 42);
 			b1.incrementGrade();
 			std::cout << b1 << std::endl;
@@ -21,6 +22,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 2 >" << std::endl;
+
 			try
 			{
 				Bureaucrat b2("Henry", 0);
@@ -37,6 +39,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 3 >" << std::endl;
+
 			Bureaucrat b3("Jacques", 150);
 			try
 			{
@@ -54,6 +57,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 4 >" << std::endl;
+
 			Form	f1("foo", 21, 42);
 			Form	f2 = Form(f1);
 		}
@@ -64,6 +68,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 5 >" << std::endl;
+
 			Bureaucrat	b("Bob", 42);
 			Form		f("foo", 21, 42);
 			try
@@ -82,6 +87,7 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 6 >" << std::endl;
+
 			Bureaucrat	b1("Bob", 42);
 			Bureaucrat	b2("John", 105);
 			Form		f("bar", 54, 98);
@@ -101,14 +107,21 @@ int	main( void )
 		std::cout << std::endl;
 
 	/*
-	**	TEST 7: 
+	**	TEST 7
 	*/
 		{
 			std::cout << "< TEST 7 >" << std::endl;
-			Bureaucrat	b("Alain", 42);
-			ShrubberyCreationForm test("buidi");
+
+			Bureaucrat				b("Jean-Eude", 42);
+			ShrubberyCreationForm	test("file");
+			RobotomyRequestForm		test2("Foo");
+			PresidentialPardonForm	test3("Bar");
+
 			b.signForm(test);
-			test.execute(b);
+			b.signForm(test3);
+			b.executeForm(test2);
+			b.executeForm(test3);
+			b.executeForm(test);
 		}
 		std::cout << std::endl;
 	

@@ -7,12 +7,6 @@ PresidentialPardonForm::PresidentialPardonForm( std::string target ) : Form("Pre
 
 void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 {
-	try
-	{
-		Form::execute(executor);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	Form::execute(executor);
+	std::cout << this->getTarget() << " has been forgiven by Zafod Beeblebrox" << std::endl;
 }

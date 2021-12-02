@@ -65,6 +65,7 @@ bool	Form::isSigned( void ) const
 {
 	return (this->_signed);
 }
+
 Form &	Form::beSigned( Bureaucrat const & b )
 {
 	if (b.getGrade() > this->getSignGrade())
@@ -77,13 +78,13 @@ Form &	Form::beSigned( Bureaucrat const & b )
 
 void	Form::execute( Bureaucrat const & executor ) const
 {
-	if (this->isSigned() == false)
-	{
-		throw (Form::NotSignedException());
-	}
 	if (executor.getGrade() > this->getExecGrade())
 	{
 		throw (Form::GradeTooLowException());
+	}
+	if (this->isSigned() == false)
+	{
+		throw (Form::NotSignedException());
 	}
 }
 

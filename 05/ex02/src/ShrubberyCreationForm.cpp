@@ -19,15 +19,8 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
     	std::cout << e.what() << std::endl;
 		return ;
 	}
-	try
-	{
-		Form::execute(executor);
-		drawTrees(outFile);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	Form::execute(executor);
+	drawTrees(outFile);
 	outFile.close();
 }
 

@@ -7,12 +7,13 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("RobotomyR
 
 void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 {
-	try
-	{
-		Form::execute(executor);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	Form::execute(executor);
+	std::srand(std::time(NULL));
+	std::cout << "* Drill noise *" << std::endl;
+	std::cout << Form::getTarget();
+	if (std::rand() % 2)
+		std::cout << " has been successfully robotomised !";
+	else
+		std::cout << " robotomy failed. It's now a vegetable.";
+	std::cout << std::endl;
 }
