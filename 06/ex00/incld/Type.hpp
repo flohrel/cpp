@@ -22,6 +22,7 @@ class Type
 		enum e_type	_type;
 		std::string	_str;
 		char		_c;
+		int32_t		_i;
 		int64_t		_l;
 		float		_f;
 		double		_d;
@@ -44,7 +45,8 @@ class Type
 		char		toChar( int64_t const l ) const;
 		char		toChar( float const l ) const;
 		char		toChar( double const d ) const;
-		int			toInt( double const d ) const;
+		int32_t		toInt( long l ) const;
+		int32_t		toInt( double const d ) const;
 		float		toFloat( double const d ) const;
 
 

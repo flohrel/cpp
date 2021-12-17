@@ -70,12 +70,19 @@ char	Type::toChar( float const f ) const
 	return (static_cast<char>(f));
 }
 
-int		Type::toInt( double const d ) const
+int32_t	Type::toInt( double const d ) const
 {
 	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max() ||
 		d == std::numeric_limits<float>::infinity() || this->_str.find("nan") != std::string::npos)
 		throw (Type::Overflow());
 	return (static_cast<int>(d));
+}
+
+int32_t	Type::toInt( long l ) const
+{
+	if (l < std::numeric_limits<int>::min() || l > std::numeric_limits<int>::max())
+		throw (Type::Overflow());
+	return (static_cast<int>(l));
 }
 
 float	Type::toFloat( double const d ) const
@@ -109,7 +116,16 @@ void	Type::fromInt( void )
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << "int: " << this->_l << std::endl;
+	std::cout << "int: ";
+	try
+	{
+		this->_i = this->toInt(this->_l);
+		std::cout << this->_i << std::endl;
+	}
+	catch ( std::exception const & e )
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	this->_d = static_cast<double>(this->_l);
 	std::cout << "float: " << this->_d << ".0f" << std::endl;
 	std::cout << "double: " << this->_d << ".0" << std::endl;
@@ -131,8 +147,8 @@ void	Type::fromFloat( void )
 	std::cout << "int: ";
 	try
 	{
-		this->_l = this->toInt(this->_f);
-		std::cout << this->_l << std::endl;
+		this->_i = this->toInt(this->_f);
+		std::cout << this->_i << std::endl;
 	}
 	catch ( std::exception const & e )
 	{
@@ -158,8 +174,8 @@ void	Type::fromDouble( void )
 	std::cout << "int: ";
 	try
 	{
-		this->_l = this->toInt(this->_d);
-		std::cout << this->_l << std::endl;
+		this->_i = this->toInt(this->_d);
+		std::cout << this->_i << std::endl;
 	}
 	catch ( std::exception const & e )
 	{
