@@ -2,13 +2,13 @@
 #define __WHATEVER__H__
 
 template< typename T >
-void	swap( T* a, T* b )
+void	swap( T& a, T& b )
 {
 	T	c;
 
-	c = *b;
-	*b = *a;
-	*a = c;
+	c = b;
+	b = a;
+	a = c;
 }
 
 template< typename T >
