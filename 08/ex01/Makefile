@@ -10,7 +10,7 @@ LIBDIR		=	libft
 INCLDIR		=	incld
 
 SRC			=	main.cpp \
-				span.cpp
+				Span.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
