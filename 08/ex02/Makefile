@@ -2,14 +2,15 @@
 ## Variables ##
 ###############
 
-NAME		=	
+NAME		=	test
 
 VPATH		=	src
 OBJDIR		=	obj
 LIBDIR		=	libft
 INCLDIR		=	incld
 
-SRC			=	
+SRC			=	MutantStack.cpp \
+				main.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	clang++
