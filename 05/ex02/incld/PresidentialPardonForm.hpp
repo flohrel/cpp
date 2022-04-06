@@ -10,7 +10,6 @@ class PresidentialPardonForm: public Form
 
 		void	execute(Bureaucrat const & executor) const;
 
-		
 };
 
 #endif

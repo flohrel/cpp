@@ -21,7 +21,7 @@ class Bureaucrat
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat( void );
 
-		Bureaucrat const &	operator=( Bureaucrat const & rhs );
+		Bureaucrat&	operator=( Bureaucrat const & rhs );
 
 		std::string			getName( void ) const;
 		unsigned int		getGrade( void ) const;
@@ -31,13 +31,13 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				virtual char const *	what() const throw();
+				char const *	what() const throw();
 		};
 		
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				virtual char const *	what() const throw();
+				char const *	what() const throw();
 		};
 };
 
