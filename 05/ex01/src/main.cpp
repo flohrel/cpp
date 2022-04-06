@@ -52,6 +52,8 @@ int	main( void )
 	*/
 		{
 			std::cout << "< TEST 4 >" << std::endl;
+			if (!VERBOSE)
+				std::cout << "\033[1;33mCompile with \"make verbose\" to show output\033[0m" << std::endl;
 			Form	f1("foo", 21, 42);
 			Form	f2 = Form(f1);
 		}

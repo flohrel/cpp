@@ -18,7 +18,7 @@ SRC			=	main.cpp \
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 INCFLAGS	=	-I./$(INCLDIR) -I./$(LIBDIR)/incld
 LFLAGS		=
 RM			=	/bin/rm -rf
