@@ -8,6 +8,7 @@ DiamondTrap::DiamondTrap( std::string name ) : ScavTrap(name), FragTrap(name)
 	this->_mp = ScavTrap::_mp;
 	this->_dmg = FragTrap::_dmg;
 	std::cout << "DiamondTrap constructor called" << std::endl;
+	std::cout << _hp << " " << _mp << " " << _dmg << std::endl;
 	return ;
 }
 
