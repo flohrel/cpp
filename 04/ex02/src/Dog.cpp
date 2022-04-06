@@ -11,6 +11,7 @@ Dog::Dog( void )
 Dog::Dog( Dog const & src )
 {
 	this->_type = src.getType();
+	this->_brain = new Brain();
 	*(this->_brain) = *(src.getBrain());
 	std::cout << "Dog copy constructor called." << std::endl;
 	return ;
