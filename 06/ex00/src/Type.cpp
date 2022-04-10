@@ -102,7 +102,7 @@ void	Type::fromChar( void )
 	std::cout << "float: " << this->_d << ".0f" << std::endl;
 	std::cout << "double: " << this->_d << ".0" << std::endl;
 }
-
+#include <iomanip>
 void	Type::fromInt( void )
 {
 	this->_l = strtol(this->_str.c_str(), NULL, 10);
@@ -154,8 +154,8 @@ void	Type::fromFloat( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "float: " << this->_f << "f" << std::endl;
-	std::cout << "double: " << this->_f << std::endl;
+	std::cout << "float: "  << std::setprecision(1) << std::fixed << this->_f << "f" << std::endl;
+	std::cout << "double: "  << std::setprecision(1) << std::fixed << this->_f << std::endl;
 }
 
 void	Type::fromDouble( void )
@@ -185,13 +185,13 @@ void	Type::fromDouble( void )
 	try
 	{
 		this->_f = this->toFloat(this->_d);
-		std::cout << this->_f << "f" << std::endl;
+		std::cout << std::setprecision(1) << std::fixed << this->_f << "f" << std::endl;
 	}
 	catch(std::exception const & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "double: " << this->_d << std::endl;
+	std::cout << "double: " << std::setprecision(1) << std::fixed << this->_d << std::endl;
 }
 
 void	Type::convert( void )

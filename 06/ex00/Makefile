@@ -13,7 +13,7 @@ SRC			=	main.cpp \
 				Type.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
-CC			=	clang++
+CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 INCFLAGS	=	-I./$(INCLDIR) -I./$(LIBDIR)/incld
 LFLAGS		=
