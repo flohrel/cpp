@@ -1,98 +1,104 @@
-#include "Type.hpp"
+#include "Converter.hpp"
 
-Type::Type( void ) : _type(NONE), _str("\0"), _c(0), _l(0), _f(0), _d(0)
+e_type
+Converter::getType( void ) const
 {
-	return;
-}
-
-enum e_type	Type::getType( void ) const
-{
-	if ((this->_str.length() == 1) &&
-		(((this->_str[0] >= 'A') && (this->_str[0] <= 'Z')) ||
-		((this->_str[0] >= 'a') && (this->_str[0] <= 'z'))))
+	if ((this->_str.length() == 1) && (std::isprint(_str[0])))
 	{
 		return (CHAR);
 	}
-	else if (((this->_str.find(".") != std::string::npos) ||
-		(this->_str.find("nan") != std::string::npos)) ||
-		(this->_str.find("inf") != std::string::npos))
+	else if ((this->_str.find(".") != std::string::npos) ||
+			(this->_str.find("nan") != std::string::npos) ||
+			(this->_str.find("inf") != std::string::npos))
 	{
-		if (*(this->_str.end() - 1) == 'f' && *(this->_str.end() - 2) != 'n')
+		if ((*(this->_str.end() - 1) == 'f') && (*(this->_str.end() - 2) != 'n'))
+		{
 			return (FLOAT);
+		}
 		return (DOUBLE);
 	}
 	return (INT);
 }
 
-Type::Type( char const * arg )
-{
-	this->_str = static_cast<std::string>(arg);
-	this->_type = this->getType();
+Converter::Converter( void )
+: _str("\0"), _c(0), _l(0), _f(0), _d(0), _type(NONE)
+{ 
+	for (unsigned i = 0; i < Converter::kNbConversion; i++)
+	{
+		_convert[i] = NULL;
+	}
+	return;
 }
 
-Type::Type( Type const & src )
+Converter::Converter( Converter const & src )
 {
 	*this = src;
 	return;
 }
 
-Type::~Type( void )
+Converter::~Converter( void )
+{ return; }
+
+Converter&
+Converter::operator=( Converter const & rhs )
 {
-	return;
+	this->_type = rhs._type;
+	this->_str = rhs._str;
+	this->_c = rhs._c;
+	this->_l = rhs._l;
+	this->_f = rhs._f;
+	this->_d = rhs._d;
+	return (*this);
 }
 
-char	Type::toChar( int64_t const l ) const
+char
+Converter::toChar( long long const l ) const
 {
 	if (l < std::numeric_limits<char>::min() || l > std::numeric_limits<char>::max())
-		throw (Type::Overflow());
-	if ((l < ' ') || l >= 127)
-		throw (Type::NonPrintable());
-	return (static_cast<char>(l));
+		throw (Converter::Overflow());
+	if (std::isprint(static_cast<unsigned char>(_l)))
+		throw (Converter::NonPrintable());
+	return (static_cast<unsigned char>(l));
 }
 
-char	Type::toChar( double const d ) const
+char
+Converter::toChar( double const d ) const
 {
 	if (d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max() ||
 		d == std::numeric_limits<double>::infinity() || this->_str.find("nan") != std::string::npos)
-		throw (Type::Overflow());
-	if ((d < ' ') || d >= 127)
-		throw (Type::NonPrintable());
-	return (static_cast<char>(d));
+		throw (Converter::Overflow());
+	if (std::isprint(static_cast<unsigned char>(_l)))
+		throw (Converter::NonPrintable());
+	return (static_cast<unsigned char>(d));
 }
 
-char	Type::toChar( float const f ) const
-{
-	if (f < std::numeric_limits<char>::min() || f > std::numeric_limits<char>::max() ||
-		f == std::numeric_limits<float>::infinity() || this->_str.find("nan") != std::string::npos)
-		throw (Type::Overflow());
-	if ((f < ' ') || f >= 127)
-		throw (Type::NonPrintable());
-	return (static_cast<char>(f));
-}
-
-int32_t	Type::toInt( double const d ) const
+int
+Converter::toInt( double const d ) const
 {
 	if (d < std::numeric_limits<int>::min() || d > std::numeric_limits<int>::max() ||
 		d == std::numeric_limits<float>::infinity() || this->_str.find("nan") != std::string::npos)
-		throw (Type::Overflow());
+		throw (Converter::Overflow());
 	return (static_cast<int>(d));
 }
 
-int32_t	Type::toInt( long l ) const
+int
+Converter::toInt( long long l ) const
 {
 	if (l < std::numeric_limits<int>::min() || l > std::numeric_limits<int>::max())
-		throw (Type::Overflow());
+		throw (Converter::Overflow());
 	return (static_cast<int>(l));
 }
 
-float	Type::toFloat( double const d ) const
+float
+Converter::toFloat( double const d ) const
 {
 	if (d < std::numeric_limits<float>::min() || d > std::numeric_limits<float>::max())
-		throw (Type::Overflow());
+		throw (Converter::Overflow());
 	return (static_cast<float>(d));
 }
 
-void	Type::fromChar( void )
+void
+Converter::fromChar( void )
 {
 	this->_c = this->_str[0];
 	std::cout << "char: " << this->_c << std::endl;
@@ -102,8 +108,9 @@ void	Type::fromChar( void )
 	std::cout << "float: " << this->_d << ".0f" << std::endl;
 	std::cout << "double: " << this->_d << ".0" << std::endl;
 }
-#include <iomanip>
-void	Type::fromInt( void )
+
+void
+Converter::fromInt( void )
 {
 	this->_l = strtol(this->_str.c_str(), NULL, 10);
 	std::cout << "char: ";
@@ -131,7 +138,8 @@ void	Type::fromInt( void )
 	std::cout << "double: " << this->_d << ".0" << std::endl;
 }
 
-void	Type::fromFloat( void )
+void
+Converter::fromFloat( void )
 {
 	this->_f = strtof(this->_str.c_str(), NULL);
 	std::cout << "char: ";
@@ -158,7 +166,8 @@ void	Type::fromFloat( void )
 	std::cout << "double: "  << std::setprecision(1) << std::fixed << this->_f << std::endl;
 }
 
-void	Type::fromDouble( void )
+void
+Converter::fromDouble( void )
 {
 	this->_d = strtod(this->_str.c_str(), NULL);
 	std::cout << "char: ";
@@ -185,44 +194,34 @@ void	Type::fromDouble( void )
 	try
 	{
 		this->_f = this->toFloat(this->_d);
-		std::cout << std::setprecision(1) << std::fixed << this->_f << "f" << std::endl;
+		std::cout << static_cast<float>(this->_f) << "f" << std::endl;
 	}
 	catch(std::exception const & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "double: " << std::setprecision(1) << std::fixed << this->_d << std::endl;
+	std::cout << "double: " << static_cast<float>(this->_d) << std::endl;
 }
 
-void	Type::convert( void )
+Converter::Converter( char const * arg )
+: _str(static_cast<std::string>(arg)), _type(getType())
 {
-	if (this->_type == CHAR)
-		this->fromChar();
-	else if (this->_type == INT)
-		this->fromInt();
-	else if (this->_type == FLOAT)
-		this->fromFloat();
-	else
-		this->fromDouble();
+	_convert[0] = &Converter::fromChar;
+	_convert[1] = &Converter::fromInt;
+	_convert[2] = &Converter::fromFloat;
+	_convert[3] = &Converter::fromDouble;
+	_convert[4] = NULL;
+	return ;
 }
 
-Type &	Type::operator=( Type const & rhs )
-{
-	this->_type = rhs._type;
-	this->_str = rhs._str;
-	this->_c = rhs._c;
-	this->_l = rhs._l;
-	this->_f = rhs._f;
-	this->_d = rhs._d;
-	return (*this);
-}
-
-char const *	Type::NonPrintable::what() const throw()
+const char*
+Converter::NonPrintable::what() const throw()
 {
 	return ("Non displayable");
 }
 
-char const *	Type::Overflow::what() const throw()
+const char*
+Converter::Overflow::what() const throw()
 {
 	return ("Impossible");
 }

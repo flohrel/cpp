@@ -1,11 +1,11 @@
-#include "Type.hpp"
+#include "Converter.hpp"
 
 int	main(int ac, char **av)
 {
-	Type t;
 	if (ac != 2)
 		return (EXIT_FAILURE);
-	t = Type(av[1]);
-	t.convert();
+
+	Converter c(av[1]);
+	c.convert();
 	return (0);
 }
