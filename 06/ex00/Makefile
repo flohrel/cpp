@@ -10,7 +10,10 @@ LIBDIR		=	libft
 INCLDIR		=	include
 
 SRC			=	main.cpp \
-				Converter.cpp
+				Converter.cpp \
+				Int.cpp \
+				Float.cpp \
+				Factory.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	c++

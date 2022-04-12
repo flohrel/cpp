@@ -24,57 +24,44 @@ enum e_type
 class Converter
 {
 	private:
-		static const size_t		kNbConversion = 5;
-
-		typedef					void (Converter::*t_convert_fn)(void);
-
-		std::string				_str;
 		unsigned char			_c;
-		int						_i;
-		long long				_l;
-		float					_f;
-		double					_d;
+
+	protected:
+		std::string				_str;
 		e_type					_type;
-		t_convert_fn			_convert[Converter::kNbConversion];
-
-
+		double					_d;
 
 	public:
 		Converter( void );
-		Converter( char const * arg );
-		Converter( Converter const & src );
-		~Converter( void );
+		Converter( const std::string& str, e_type type );
+		Converter( const Converter& src );
+		virtual ~Converter( void );
 
-		Converter &	operator=( Converter const & rhs );
+		Converter&				operator=( const Converter& rhs );
 
-		e_type		getType( void ) const;
-		void		fromChar( void );
-		void		fromInt( void );
-		void		fromFloat( void );
-		void		fromDouble( void );
-		char		toChar( long long const l ) const;
-		char		toChar( double const d ) const;
-		int			toInt( long long l ) const;
-		int			toInt( double const d ) const;
-		float		toFloat( double const d ) const;
+		void					convert( void );
+		void					display( void );
 
-		void		convert( void );
-		void		display( void );
+		virtual unsigned char	toChar( void ) const;	
+		virtual int				toInt( void ) const;
+		virtual float			toFloat( void ) const;
 
 
 	class	NonPrintable: public std::exception
 	{
 		public:
-			char const *	what() const throw();
+			const char*	what() const throw();
 	};
 
 	class	Overflow: public std::exception
 	{
 		public:
-			char const *	what() const throw();
+			const char*	what() const throw();
 	};
 
 
 };
+
+bool	is_print(int ch);
 
 #endif
