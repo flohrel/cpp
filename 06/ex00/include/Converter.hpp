@@ -23,13 +23,12 @@ enum e_type
 
 class Converter
 {
-	private:
-		unsigned char			_c;
-
 	protected:
-		std::string				_str;
 		e_type					_type;
+		std::string				_str;
+		char					_c;
 		double					_d;
+
 
 	public:
 		Converter( void );
@@ -42,7 +41,7 @@ class Converter
 		void					convert( void );
 		void					display( void );
 
-		virtual unsigned char	toChar( void ) const;	
+		virtual char			toChar( void ) const;	
 		virtual int				toInt( void ) const;
 		virtual float			toFloat( void ) const;
 

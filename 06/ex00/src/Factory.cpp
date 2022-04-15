@@ -22,7 +22,7 @@ Factory::operator=( const Factory& rhs )
 e_type
 Factory::getType( std::string arg )
 {
-	if ((arg.length() == 1) && (std::isprint(static_cast<unsigned char>(arg[0]))))
+	if ((arg.length() == 1) && (std::isprint(static_cast<char>(arg[0]))))
 	{
 		return (CHAR);
 	}

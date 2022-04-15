@@ -5,7 +5,10 @@ Float::Float( void )
 
 Float::Float( const std::string &str, e_type type )
 : Converter(str, type), _f(strtof(str.c_str(), NULL))
-{ return; }
+{
+	_d = strtod(str.c_str(), NULL);
+	return;
+}
 
 Float::Float( const Float& rhs )
 : Converter(rhs)
@@ -14,7 +17,7 @@ Float::Float( const Float& rhs )
 Float::~Float( void )
 { return; }
 
-unsigned char
+char
 Float::toChar( void ) const
 {
 	if ((_d < std::numeric_limits<char>::min()) ||
@@ -24,11 +27,11 @@ Float::toChar( void ) const
 	{
 		throw (Converter::Overflow());
 	}
-	if (!std::isprint(static_cast<unsigned char>(_d)))
+	if (!std::isprint(static_cast<char>(_d)))
 	{
 		throw (Converter::NonPrintable());
 	}
-	return (static_cast<unsigned char>(_d));
+	return (static_cast<char>(_d));
 }
 
 int

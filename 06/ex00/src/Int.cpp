@@ -5,7 +5,10 @@ Int::Int( void )
 
 Int::Int( const std::string& str, e_type type )
 : Converter(str, type), _l(strtol(str.c_str(), NULL, 10))
-{ return; }
+{
+	_d = static_cast<double>(_l);
+	return;
+}
 
 Int::Int( const Int& rhs )
 : Converter(rhs)
@@ -25,7 +28,7 @@ Int::operator=( const Int& rhs )
 	return (*this);
 }
 
-unsigned char
+char
 Int::toChar( void ) const
 {
 	if ((_l < std::numeric_limits<char>::min()) ||
@@ -33,11 +36,11 @@ Int::toChar( void ) const
 	{
 		throw (Converter::Overflow());
 	}
-	if (!std::isprint(static_cast<unsigned char>(_l)))
+	if (!std::isprint(static_cast<char>(_l)))
 	{
 		throw (Converter::NonPrintable());
 	}
-	return (static_cast<unsigned char>(_l));
+	return (static_cast<char>(_l));
 }
 
 int
@@ -49,4 +52,10 @@ Int::toInt( void ) const
 		throw (Converter::Overflow());
 	}
 	return (static_cast<int>(_l));
+}
+
+float
+Int::toFloat( void ) const
+{
+	return (static_cast<float>(_l));
 }

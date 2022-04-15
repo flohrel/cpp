@@ -16,7 +16,7 @@ class Float: public Converter
 		Float( const Float& src );
 		~Float( void );
 
-		unsigned char	toChar( void ) const;	
+		char			toChar( void ) const;	
 		int				toInt( void ) const;
 		float			toFloat( void ) const;
 

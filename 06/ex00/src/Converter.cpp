@@ -1,12 +1,15 @@
 #include "Converter.hpp"
 
 Converter::Converter( void )
-: _c(0), _str(std::string()), _d(0)
+: _type(NONE), _str(std::string()), _c(0)
 { return; }
 
 Converter::Converter( const std::string& str, e_type type )
-:  _c(str[0]), _str(str), _type(type), _d(strtod(str.c_str(), NULL))
-{ return ; }
+: _type(type), _str(str), _c(str[0])
+{
+	_d = static_cast<double>(_c);
+	return ;
+}
 
 Converter::Converter( const Converter& src )
 {
@@ -32,7 +35,7 @@ Converter::display( void )
 	std::cout << std::setprecision(1) << std::fixed;
 	std::cout << "char: ";
 	try {
-		unsigned char c = toChar();
+		char c = toChar();
 		std::cout << "'" << c << "'";
 	} catch (const std::exception& e) {
 		std::cout << e.what();
@@ -52,22 +55,22 @@ Converter::display( void )
 	std::cout << std::endl << "double: " << _d << std::endl;
 }
 
-unsigned char
+char
 Converter::toChar( void ) const
 {
-	return (_str[0]);
+	return (_c);
 }
 
 int
 Converter::toInt( void ) const
 {
-	return (static_cast<int>(_d));
+	return (static_cast<int>(_c));
 }
 
 float
 Converter::toFloat( void ) const
 {
-	return (static_cast<float>(_d));
+	return (static_cast<float>(_c));
 }
 
 const char*

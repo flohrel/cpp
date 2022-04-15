@@ -18,8 +18,9 @@ class Int : public Converter
 
 		Int&			operator=( const Int& rhs );
 
-		unsigned char	toChar( void ) const;
+		char			toChar( void ) const;
 		int				toInt( void ) const;
+		float			toFloat( void ) const;
 
 };
 
