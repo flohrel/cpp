@@ -32,7 +32,7 @@ void	identify( Base* p )
 		std::cout << "C" << std::endl;
 }
 
-void	identify( Base & p )
+void	identify( Base& p )
 {
 	A	a;
 	B	b;
