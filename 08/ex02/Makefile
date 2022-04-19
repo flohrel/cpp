@@ -9,8 +9,7 @@ OBJDIR		=	obj
 LIBDIR		=	libft
 INCLDIR		=	incld
 
-SRC			=	MutantStack.tpp \
-				main.cpp
+SRC			=	main.cpp
 OBJ			=	$(SRC:%.cpp=$(OBJDIR)/%.o)
 
 CC			=	c++
