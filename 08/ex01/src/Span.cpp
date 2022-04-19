@@ -43,14 +43,6 @@ char const*	Span::ContainerFull::what() const throw()
 	return ("Container is already full.");
 }
 
-void	Span::addNumber( int number )
-{
-	if (this->_numbers.size() == this->_maxSize)
-		throw (Span::ContainerFull());
-	this->_numbers.push_back(number);
-	std::sort(this->_numbers.begin(), this->_numbers.end());
-}
-
 unsigned int	Span::shortestSpan( void )
 {
 	int							result;

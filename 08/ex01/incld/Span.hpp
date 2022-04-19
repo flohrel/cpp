@@ -27,6 +27,15 @@ class Span
 		unsigned int		shortestSpan( void );
 		unsigned int		longestSpan( void );
 
+		template< typename Iter >
+		void	addRange( Iter begin, Iter end )
+		{
+			for (Iter it = begin; it != end; it++)
+			{
+				addNumber(*it);
+			}
+		}
+
 		class ContainerFull: public std::exception
 		{
 			public:
@@ -39,7 +48,7 @@ class Span
 				virtual char const *	what() const throw();
 		};
 
-
 };
+
 
 #endif
