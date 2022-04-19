@@ -2,11 +2,25 @@
 #define __EASYFIND__H__
 
 #include <algorithm>
+#include <exception>
+
+class NotFoundException : public std::exception
+{
+	public:
+		virtual const char* what() const throw()
+		{
+			return ("Element not found.");
+		}
+};
 
 template< typename T >
-typename T::iterator	easyfind( T& container, int i )
+int	easyfind( const T& container, const int i )
 {
-	return ( static_cast<typename T::iterator>( find( container.begin(), container.end(), i ) ) );
+	typename T::const_iterator	it;
+
+	if ((it = find( container.begin(), container.end(), i)) == container.end())
+		throw (NotFoundException());
+	return (*it);
 }
 
 #endif
